@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<EmBitz_project_file>
+	<EmBitzVersion release="2.30" revision="0" />
+	<FileVersion major="2" minor="0" />
+	<Project>
+		<Option title="COM_M_EMBITZ" />
+		<Option pch_mode="2" />
+		<Option compiler="armgcc_eb" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin\Debug\COM_M_EMBITZ.elf" />
+				<Option object_output="obj\Debug\" />
+				<Option type="0" />
+				<Option create_hex="1" />
+				<Option compiler="armgcc_eb" />
+				<Option projectDeviceOptionsRelation="0" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-fdata-sections" />
+					<Add option="-ffunction-sections" />
+					<Add option="-O0" />
+					<Add option="-g2" />
+					<Add symbol="DEBUG_TARGET" />
+				</Compiler>
+				<Cpp>
+					<Add option="-Wall" />
+					<Add option="-fdata-sections" />
+					<Add option="-ffunction-sections" />
+					<Add option="-O0" />
+					<Add option="-g2" />
+				</Cpp>
+				<Assembler>
+					<Add option="-Wa,--gdwarf-2" />
+				</Assembler>
+				<Linker>
+					<Add option="-Wl,--gc-sections" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin\Release\COM_M_EMBITZ.elf" />
+				<Option object_output="obj\Release\" />
+				<Option type="0" />
+				<Option create_hex="1" />
+				<Option compiler="armgcc_eb" />
+				<Option projectDeviceOptionsRelation="0" />
+				<Compiler>
+					<Add option="-fdata-sections" />
+					<Add option="-ffunction-sections" />
+					<Add option="-O0" />
+					<Add option="-g2" />
+					<Add symbol="RELEASE_TARGET" />
+				</Compiler>
+				<Cpp>
+					<Add option="-fdata-sections" />
+					<Add option="-ffunction-sections" />
+					<Add option="-O2" />
+					<Add option="-g2" />
+				</Cpp>
+				<Assembler>
+					<Add option="-Wa,--no-warn" />
+				</Assembler>
+				<Linker>
+					<Add option="-Wl,--gc-sections" />
+					<Add option="-flto" />
+				</Linker>
+				<ExtraCommands>
+					<Add after='arm-none-eabi-objcopy -O binary &quot;$(TARGET_OUTPUT_DIR)\$(TARGET_OUTPUT_BASENAME).elf&quot; &quot;$(TARGET_OUTPUT_DIR)\$(TARGET_OUTPUT_BASENAME).bin&quot;' />
+					<Mode before="0" />
+					<Mode after="2" />
+				</ExtraCommands>
+			</Target>
+		</Build>
+		<Device>
+			<Add option="$device=cortex-m3" />
+			<Add option="$stack=0x0200" />
+			<Add option="$heap=0x0400" />
+			<Add option="$lscript=./stm32f103rg_flash.ld" />
+		</Device>
+		<Compiler>
+			<Add option="-mfloat-abi=soft" />
+			<Add option="-fno-strict-aliasing" />
+			<Add symbol="ARM_MATH_CM3" />
+			<Add symbol="HSE_VALUE=8000000" />
+			<Add symbol="STM32F103" />
+			<Add symbol="STM32F103RG" />
+			<Add symbol="STM32F10X_XL" />
+			<Add symbol="PROJECT_C" />
+			<Add directory=".\cmsis" />
+			<Add directory=".\inc" />
+			<Add directory=".\src" />
+		</Compiler>
+		<Cpp>
+			<Add option="-mfloat-abi=soft" />
+			<Add option="-fno-strict-aliasing" />
+		</Cpp>
+		<Linker>
+			<Add option="-eb_start_files" />
+			<Add option="-eb_lib=n" />
+		</Linker>
+		<Unit filename="cmsis\cmsis_compiler.h" />
+		<Unit filename="cmsis\cmsis_gcc.h" />
+		<Unit filename="cmsis\cmsis_version.h" />
+		<Unit filename="cmsis\core_cm3.h" />
+		<Unit filename="cmsis\mpu_armv7.h" />
+		<Unit filename="cmsis\mpu_armv8.h" />
+		<Unit filename="cmsis\tz_context.h" />
+		<Unit filename="Code\common_macro.h" />
+		<Unit filename="Code\compile_def.h" />
+		<Unit filename="Code\config.h" />
+		<Unit filename="Code\EXT_DRV\eeprom_m95xxx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\EXT_DRV\eeprom_m95xxx.h" />
+		<Unit filename="Code\FreeRTOSConfig.h" />
+		<Unit filename="Code\init.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\init.h" />
+		<Unit filename="Code\interrupts.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\interrupts.h" />
+		<Unit filename="Code\main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\main.h" />
+		<Unit filename="Code\mem_adr.h" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\croutine.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\Middleware\FreeRTOS\Source\event_groups.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\Middleware\FreeRTOS\Source\include\atomic.h" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\include\croutine.h" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\include\deprecated_definitions.h" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\include\event_groups.h" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\include\FreeRTOS.h" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\include\list.h" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\include\message_buffer.h" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\include\mpu_prototypes.h" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\include\mpu_wrappers.h" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\include\portable.h" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\include\projdefs.h" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\include\queue.h" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\include\semphr.h" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\include\stack_macros.h" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\include\StackMacros.h" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\include\stdint.readme" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\include\stream_buffer.h" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\include\task.h" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\include\timers.h" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\list.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\Middleware\FreeRTOS\Source\portable\GCC\ARM_CM3\port.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\Middleware\FreeRTOS\Source\portable\GCC\ARM_CM3\portmacro.h" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\portable\MemMang\heap_4.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\Middleware\FreeRTOS\Source\queue.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\Middleware\FreeRTOS\Source\readme.txt" />
+		<Unit filename="Code\Middleware\FreeRTOS\Source\stream_buffer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\Middleware\FreeRTOS\Source\tasks.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\Middleware\FreeRTOS\Source\timers.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\PERIPH_STM32F1_DRV\dwt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\PERIPH_STM32F1_DRV\dwt.h" />
+		<Unit filename="Code\PERIPH_STM32F1_DRV\exti.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\PERIPH_STM32F1_DRV\exti.h" />
+		<Unit filename="Code\PERIPH_STM32F1_DRV\flash.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\PERIPH_STM32F1_DRV\flash.h" />
+		<Unit filename="Code\PERIPH_STM32F1_DRV\gpio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\PERIPH_STM32F1_DRV\gpio.h" />
+		<Unit filename="Code\PERIPH_STM32F1_DRV\rtc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\PERIPH_STM32F1_DRV\rtc.h" />
+		<Unit filename="Code\PERIPH_STM32F1_DRV\spi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\PERIPH_STM32F1_DRV\spi.h" />
+		<Unit filename="Code\PERIPH_STM32F1_DRV\timer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\PERIPH_STM32F1_DRV\timer.h" />
+		<Unit filename="Code\PERIPH_STM32F1_DRV\usart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\PERIPH_STM32F1_DRV\usart.h" />
+		<Unit filename="Code\PROCESS_MODULES\crc16.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\PROCESS_MODULES\crc16.h" />
+		<Unit filename="Code\PROCESS_MODULES\data_forward.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\PROCESS_MODULES\data_forward.h" />
+		<Unit filename="Code\PROCESS_MODULES\fw_upd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\PROCESS_MODULES\fw_upd.h" />
+		<Unit filename="Code\PROCESS_MODULES\iec60870_103.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\PROCESS_MODULES\iec60870_103.h" />
+		<Unit filename="Code\PROCESS_MODULES\message_queue.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\PROCESS_MODULES\message_queue.h" />
+		<Unit filename="Code\PROCESS_MODULES\modbus.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\PROCESS_MODULES\modbus.h" />
+		<Unit filename="Code\PROCESS_MODULES\parall_bus.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\PROCESS_MODULES\parall_bus.h" />
+		<Unit filename="Code\PROCESS_MODULES\rel_table.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\PROCESS_MODULES\rel_table.h" />
+		<Unit filename="Code\PROCESS_MODULES\serial_bus.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\PROCESS_MODULES\serial_bus.h" />
+		<Unit filename="Code\PROCESS_MODULES\vers.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Code\PROCESS_MODULES\vers.h" />
+		<Unit filename="Code\user_types.h" />
+		<Unit filename="ebmon.c">
+			<Option compilerVar="CC" />
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="ebmon.h">
+			<Option target="Debug" />
+		</Unit>
+		<Unit filename="inc\stm32f10x.h" />
+		<Unit filename="inc\system_stm32f10x.h" />
+		<Unit filename="src\startup_stm32f103xg.S">
+			<Option compilerVar="CC" />
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="src\system_stm32f10x.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="stm32f103rg_flash.ld" />
+		<Unit filename="STM32F103xx.svd" />
+		<Extensions>
+			<code_completion />
+			<debugger>
+				<target_debugging_settings target="Debug">
+					<debug_interface description="STM32F103xx.svd" options="2" reg_filter="0" probe="STlink" device="stm32-auto" speed="" bus_address="" serial="" defines="" scripts="" flash_size="" ram_size="" vcc_voltage="" verbose="4" unwind="2" rstType="0" use_jtag="false" disable_cache="false" enable_semi="false" close_eblink="false" gdb_reset="" gdb_reset_remote="reset;" gdb_before_conn="" gdb_after_conn="" use_remote="false" ip_address="" ip_port="" path="" executable="" start_server="false" arguments="" flash_verify="true" flash_run="false" />
+				</target_debugging_settings>
+				<target_debugging_settings target="Release">
+					<debug_interface description="STM32F103xx.svd" options="2" reg_filter="0" probe="STlink" device="stm32-auto" speed="" bus_address="" serial="" defines="" scripts="" flash_size="" ram_size="" vcc_voltage="" verbose="4" unwind="2" rstType="0" use_jtag="false" disable_cache="false" enable_semi="false" close_eblink="false" gdb_reset="" gdb_reset_remote="reset" gdb_before_conn="" gdb_after_conn="" use_remote="false" ip_address="" ip_port="" path="" executable="" start_server="false" arguments="" flash_verify="false" flash_run="false" />
+				</target_debugging_settings>
+			</debugger>
+			<envvars />
+			<AutoVersioning>
+				<Scheme minor_max="10" build_max="0" rev_max="0" rev_rand_max="10" build_times_to_increment_minor="100" />
+				<Settings use_defines="1" autoincrement="1" date_declarations="1" update_manifest="1" do_auto_increment="0" ask_to_increment="0" language="C++" svn="0" svn_directory="" header_path="version.h" />
+				<Changes_Log show_changes_editor="0" app_title="released version %M.%m.%b of %p" changeslog_path="ChangesLog.txt" />
+				<Code header_guard="VERSION_H" namespace="AutoVersion" prefix="" />
+			</AutoVersioning>
+		</Extensions>
+	</Project>
+</EmBitz_project_file>
